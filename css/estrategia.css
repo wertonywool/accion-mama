@@ -1,0 +1,144 @@
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.plan-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-gold);
+}
+
+.plan-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-gold);
+}
+
+.plan-card h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.plan-card p {
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.percentage-badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 204, 0, 0.1);
+    border: 2px solid var(--accent-gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+.percentage-badge span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin-top: -2px;
+}
+
+/* Roadmap styles */
+.roadmap {
+    position: relative;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 4rem;
+}
+
+.roadmap h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--accent-cyan);
+}
+
+.roadmap-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.roadmap-item {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.roadmap-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent-cyan);
+    flex-shrink: 0;
+    margin-top: 8px;
+}
+
+.roadmap-content h4 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-content p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+/* Quote box */
+.quote-premium {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #161618, #0a0a0b);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.quote-premium i {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+.quote-premium h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--text-main);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .strategy-grid {
+        grid-template-columns: 1fr;
+    }
+}

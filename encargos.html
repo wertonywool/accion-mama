@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importaciones y Encargos | Acción de Mamá</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/encargos.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="sparkles"></i>
+            Acción de <span>Mamá</span>
+        </a>
+        <div class="nav-links">
+            <a href="ventas.html"><i data-lucide="shopping-bag"></i> Ventas</a>
+            <a href="encargos.html" class="active"><i data-lucide="package"></i> Encargos</a>
+            <a href="comida.html"><i data-lucide="utensils"></i> Comida</a>
+            <a href="digital.html"><i data-lucide="smartphone"></i> Digital</a>
+            <a href="estrategia.html"><i data-lucide="target"></i> Estrategia</a>
+            <a href="billetera.html"><i data-lucide="wallet"></i> Billetera</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="badge">Sin Capital Propio</div>
+            <h1>Encargos por <span>Catálogo</span></h1>
+            <p>Trae productos del exterior cobrando una comisión fija. Cero riesgos, máxima ganancia.</p>
+        </header>
+
+        <main class="catalog-grid">
+            <!-- AliExpress Card -->
+            <div class="import-card">
+                <div class="brand-tag tag-ali">AliExpress</div>
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800" alt="Tech Gadgets" class="import-image">
+                <h2>Gadgets & Tecnología</h2>
+                <p>Ideal para repuestos de celulares, smartwatches económicos y curiosidades tecnológicas.</p>
+                <ul class="feature-list">
+                    <li><i data-lucide="check-circle"></i> Precios de fábrica</li>
+                    <li><i data-lucide="check-circle"></i> Envío a toda Colombia</li>
+                    <li><i data-lucide="check-circle"></i> Protección al comprador</li>
+                </ul>
+                <input type="checkbox" id="ali-check">
+                <label for="ali-check" class="check-container">
+                    <span>Elegir Plataforma</span>
+                    <div class="custom-checkbox"></div>
+                </label>
+            </div>
+
+            <!-- Temu Card -->
+            <div class="import-card">
+                <div class="brand-tag tag-temu">Temu</div>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Home Decor" class="import-image">
+                <h2>Hogar y Cocina</h2>
+                <p>La tendencia actual. Utensilios de cocina geniales, decoración y gadgets para el hogar.</p>
+                <ul class="feature-list">
+                    <li><i data-lucide="zap"></i> Envíos ultra rápidos</li>
+                    <li><i data-lucide="zap"></i> Ofertas relámpago</li>
+                    <li><i data-lucide="zap"></i> Devoluciones fáciles</li>
+                </ul>
+                <input type="checkbox" id="temu-check">
+                <label for="temu-check" class="check-container">
+                    <span>Elegir Plataforma</span>
+                    <div class="custom-checkbox"></div>
+                </label>
+            </div>
+
+            <!-- Shein Card -->
+            <div class="import-card">
+                <div class="brand-tag tag-shein">Shein</div>
+                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&q=80&w=800" alt="Fashion" class="import-image">
+                <h2>Moda y Belleza</h2>
+                <p>Ropa de tendencia, maquillaje y accesorios. Las mejores fotos para vender por estados.</p>
+                <ul class="feature-list">
+                    <li><i data-lucide="star"></i> Calidad visual alta</li>
+                    <li><i data-lucide="star"></i> Tallas garantizadas</li>
+                    <li><i data-lucide="star"></i> Cupones de descuento</li>
+                </ul>
+                <input type="checkbox" id="shein-check">
+                <label for="shein-check" class="check-container">
+                    <span>Elegir Plataforma</span>
+                    <div class="custom-checkbox"></div>
+                </label>
+            </div>
+        </main>
+
+        <section class="guide-section">
+            <h2>Guía para tu Mamá: <span>Paso a Paso</span></h2>
+            <div class="step-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h4>Muestra el App</h4>
+                    <p>Siéntate con tus amigas y muéstrales las fotos de lo que pueden pedir.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h4>Recibe el Pago</h4>
+                    <p>Pídeles el valor total + tu comisión ($8.000 - $15.000 por artículo).</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h4>Haz el Pedido</h4>
+                    <p>Usa los datos de tu casa. El envío llega directo a tu puerta.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h4>Entrega y Gana</h4>
+                    <p>¡Listo! Entregas el producto y te quedas con tu ganancia neta.</p>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-bottom: 5rem;">
+            <a href="index.html" class="btn btn-primary">
+                <i data-lucide="arrow-left"></i>
+                Volver al Dashboard
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Acción de Mamá | Importando sueños a Colombia</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta Rápida (Comida) | Acción de Mamá</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/comida.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Estilo rápido para checkbox en esta página */
+        .check-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .custom-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--text-dim);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="checkbox"] { display: none; }
+        input[type="checkbox"]:checked + .check-container .custom-checkbox {
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+        input[type="checkbox"]:checked + .check-container .custom-checkbox::after {
+            content: '✓';
+            color: #000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="sparkles"></i>
+            Acción de <span>Mamá</span>
+        </a>
+        <div class="nav-links">
+            <a href="ventas.html"><i data-lucide="shopping-bag"></i> Ventas</a>
+            <a href="encargos.html"><i data-lucide="package"></i> Encargos</a>
+            <a href="comida.html" class="active"><i data-lucide="utensils"></i> Comida</a>
+            <a href="digital.html"><i data-lucide="smartphone"></i> Digital</a>
+            <a href="estrategia.html"><i data-lucide="target"></i> Estrategia</a>
+            <a href="billetera.html"><i data-lucide="wallet"></i> Billetera</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="badge">Flujo de Caja Diario</div>
+            <h1>Venta <span>Rápida</span></h1>
+            <p>Ideas deliciosas y económicas que siempre funcionan en Colombia para ganar dinero cada semana.</p>
+        </header>
+
+        <main class="food-grid">
+            <!-- Salchipapas -->
+            <div class="recipe-card">
+                <div class="recipe-image-wrapper">
+                    <div class="profit-badge">Alta Demanda</div>
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800" alt="Salchipapas" class="recipe-image">
+                    <div class="recipe-overlay"></div>
+                </div>
+                <div class="recipe-content">
+                    <h2><i data-lucide="flame"></i> Salchipapas</h2>
+                    <p>El rey de los antojos nocturnos. Papa amarilla o criolla, salchicha de buena calidad y una salsa secreta.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Inversión</span>
+                            <span class="stat-value">$5.000</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Venta</span>
+                            <span class="stat-value">$12.000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="check-box-wrapper">
+                    <input type="checkbox" id="food-1">
+                    <label for="food-1" class="check-container">
+                        <span>Empezar este finde</span>
+                        <div class="custom-checkbox"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Jugos y Granizados -->
+            <div class="recipe-card">
+                <div class="recipe-image-wrapper">
+                    <div class="profit-badge">Refrescante</div>
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800" alt="Jugos" class="recipe-image">
+                    <div class="recipe-overlay"></div>
+                </div>
+                <div class="recipe-content">
+                    <h2><i data-lucide="droplet"></i> Jugos & Frappés</h2>
+                    <p>Limonada de coco o jugos de fruta natural. Perfectos para las tardes de calor en el barrio.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Inversión</span>
+                            <span class="stat-value">$2.500</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Venta</span>
+                            <span class="stat-value">$6.000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="check-box-wrapper">
+                    <input type="checkbox" id="food-2">
+                    <label for="food-2" class="check-container">
+                        <span>Empezar este finde</span>
+                        <div class="custom-checkbox"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Postes/Gelatinas -->
+            <div class="recipe-card">
+                <div class="recipe-image-wrapper">
+                    <div class="profit-badge">Bajo Costo</div>
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=800" alt="Postres" class="recipe-image">
+                    <div class="recipe-overlay"></div>
+                </div>
+                <div class="recipe-content">
+                    <h2><i data-lucide="cookie"></i> Postres & Gelatinas</h2>
+                    <p>Gelatina con leche condensada o arroz con leche. Ideales para vender a los niños y vecinos.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Inversión</span>
+                            <span class="stat-value">$1.200</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Venta</span>
+                            <span class="stat-value">$3.500</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="check-box-wrapper">
+                    <input type="checkbox" id="food-3">
+                    <label for="food-3" class="check-container">
+                        <span>Empezar este finde</span>
+                        <div class="custom-checkbox"></div>
+                    </label>
+                </div>
+            </div>
+        </main>
+
+        <section class="tip-premium">
+            <div class="tip-icon"><i data-lucide="lightbulb"></i></div>
+            <div class="tip-text">
+                <h3>El Secreto Colombiano: <span>El Combo</span></h3>
+                <p>No vendas solo la salchipapa. Ofrece el "Combo Familiar" con jugo natural por un precio especial. La gente prefiere comprar todo en un solo lugar.</p>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-bottom: 5rem;">
+            <a href="index.html" class="btn btn-primary">
+                <i data-lucide="arrow-left"></i>
+                Volver al Dashboard
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Acción de Mamá | Sabor y Emprendimiento Local</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+/* Billetera Ultra-Premium Dark */
+
+.wallet-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Tarjeta de Balance "Estilo Neumórfico/Glass" */
+.balance-container {
+    background: linear-gradient(135deg, #1e1e20 0%, #0a0a0b 100%);
+    border-radius: 30px;
+    padding: 3rem;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.balance-main {
+    z-index: 2;
+}
+
+.balance-card-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.balance-amount {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -2px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+}
+
+.balance-sub {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* Resumen rápido de Ingresos/Gastos */
+.balance-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    border-left: 1px solid var(--glass-border);
+    padding-left: 2rem;
+    z-index: 2;
+}
+
+.stat-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.stat-income .stat-icon-circle { background: rgba(0, 255, 136, 0.1); color: #00ff88; }
+.stat-expense .stat-icon-circle { background: rgba(255, 71, 71, 0.1); color: #ff4747; }
+
+.stat-info span { display: block; }
+.stat-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; }
+.stat-value { font-weight: 600; color: #fff; }
+
+/* Grid de Formulario y Lista */
+.wallet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 2.5rem;
+}
+
+.form-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.form-card h3 {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group {
+    margin-bottom: 1.8rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    background: #0a0a0b;
+    border: 1px solid var(--glass-border);
+    padding: 1.1rem;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
+}
+
+/* Lista de Movimientos Premium */
+.movements-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.movements-header {
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#movements-container {
+    padding: 1.5rem 2.5rem;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.movement-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.movement-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.mov-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.mov-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.income-bg { background: rgba(0, 255, 136, 0.1); color: #00ff88; }
+.expense-bg { background: rgba(255, 71, 71, 0.1); color: #ff4747; }
+
+.mov-details .mov-name {
+    display: block;
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.mov-details .mov-date {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.mov-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.mov-value.income { color: #00ff88; }
+.mov-value.expense { color: #ff4747; }
+
+.action-btns {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Efectos de fondo en la tarjeta de balance */
+.balance-card-bg-glow {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
+    z-index: 1;
+}
+
+@media (max-width: 900px) {
+    .balance-container { grid-template-columns: 1fr; }
+    .balance-stats { border-left: none; border-top: 1px solid var(--glass-border); padding-left: 0; padding-top: 2rem; }
+    .wallet-grid { grid-template-columns: 1fr; }
+    .form-card { position: relative; top: 0; }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Billetera | Acción de Mamá</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/billetera.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="sparkles"></i>
+            Acción de <span>Mamá</span>
+        </a>
+        <div class="nav-links">
+            <a href="ventas.html"><i data-lucide="shopping-bag"></i> Ventas</a>
+            <a href="encargos.html"><i data-lucide="package"></i> Encargos</a>
+            <a href="comida.html"><i data-lucide="utensils"></i> Comida</a>
+            <a href="digital.html"><i data-lucide="smartphone"></i> Digital</a>
+            <a href="estrategia.html"><i data-lucide="target"></i> Estrategia</a>
+            <a href="billetera.html" class="active"><i data-lucide="wallet"></i> Billetera</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="badge">Gestión Financiera</div>
+            <h1>Billetera <span>Inteligente</span></h1>
+            <p>Controla cada peso de tu negocio con precisión y estilo profesional.</p>
+        </header>
+
+        <div class="wallet-layout">
+            <!-- Tarjeta de Balance Premium -->
+            <div class="balance-container">
+                <div class="balance-card-bg-glow"></div>
+                <div class="balance-main">
+                    <span class="balance-card-label">Balance Neto</span>
+                    <div class="balance-amount" id="total-balance">$0</div>
+                    <p class="balance-sub">Actualizado en tiempo real (COP)</p>
+                </div>
+                <div class="balance-stats">
+                    <div class="stat-box stat-income">
+                        <div class="stat-icon-circle"><i data-lucide="arrow-up-right"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-label">Ingresos Totales</span>
+                            <span class="stat-value" id="total-income">$0</span>
+                        </div>
+                    </div>
+                    <div class="stat-box stat-expense">
+                        <div class="stat-icon-circle"><i data-lucide="arrow-down-left"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-label">Gastos Totales</span>
+                            <span class="stat-value" id="total-expenses">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid de Herramientas -->
+            <div class="wallet-grid">
+                <!-- Formulario -->
+                <aside class="form-card">
+                    <h3><i data-lucide="plus-circle" style="color:var(--accent-cyan)"></i> Nuevo Registro</h3>
+                    <form id="wallet-form">
+                        <div class="input-group">
+                            <label>Tipo</label>
+                            <select id="type" required>
+                                <option value="income">Ingreso de Dinero</option>
+                                <option value="expense">Gasto / Inversión</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Descripción</label>
+                            <input type="text" id="desc" placeholder="Ej: Venta 5 Salchipapas" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Monto (COP)</label>
+                            <input type="number" id="amount" placeholder="15000" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1.2rem;">
+                            Registrar Movimiento
+                        </button>
+                    </form>
+                </aside>
+
+                <!-- Listado -->
+                <section class="movements-card">
+                    <div class="movements-header">
+                        <h3>Historial de Movimientos</h3>
+                        <button id="clear-btn" class="delete-btn" title="Borrar historial">
+                            <i data-lucide="eraser"></i>
+                        </button>
+                    </div>
+                    <div id="movements-container">
+                        <p class="empty-msg">No hay registros en el historial.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 5rem 0;">
+            <a href="index.html" class="btn btn-primary">
+                <i data-lucide="arrow-left"></i>
+                Volver al Dashboard
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Acción de Mamá | Tecnología Financiera para Emprendedores</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('wallet-form');
+        const container = document.getElementById('movements-container');
+        const balanceDisplay = document.getElementById('total-balance');
+        const incomeDisplay = document.getElementById('total-income');
+        const expenseDisplay = document.getElementById('total-expenses');
+        const clearBtn = document.getElementById('clear-btn');
+
+        let movements = JSON.parse(localStorage.getItem('mom_wallet_movements_v2')) || [];
+
+        const formatter = new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const type = document.getElementById('type').value;
+            const desc = document.getElementById('desc').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const date = new Date().toLocaleDateString('es-CO', { day: 'numeric', month: 'short' });
+
+            if (desc && !isNaN(amount)) {
+                movements.unshift({ id: Date.now(), type, desc, amount, date });
+                saveAndRender();
+                form.reset();
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            if(confirm('¿Deseas vaciar todo el historial de movimientos?')) {
+                movements = [];
+                saveAndRender();
+            }
+        });
+
+        window.deleteMovement = (id) => {
+            movements = movements.filter(m => m.id !== id);
+            saveAndRender();
+        };
+
+        function saveAndRender() {
+            localStorage.setItem('mom_wallet_movements_v2', JSON.stringify(movements));
+            render();
+        }
+
+        function render() {
+            if (movements.length === 0) {
+                container.innerHTML = '<p class="empty-msg">No hay registros en el historial.</p>';
+                balanceDisplay.innerText = formatter.format(0);
+                incomeDisplay.innerText = formatter.format(0);
+                expenseDisplay.innerText = formatter.format(0);
+                return;
+            }
+
+            container.innerHTML = '';
+            let total = 0;
+            let totalIn = 0;
+            let totalOut = 0;
+
+            movements.forEach(m => {
+                const isIncome = m.type === 'income';
+                if (isIncome) {
+                    total += m.amount;
+                    totalIn += m.amount;
+                } else {
+                    total -= m.amount;
+                    totalOut += m.amount;
+                }
+
+                const div = document.createElement('div');
+                div.className = 'movement-item';
+                div.innerHTML = `
+                    <div class="mov-info">
+                        <div class="mov-icon-box ${isIncome ? 'income-bg' : 'expense-bg'}">
+                            <i data-lucide="${isIncome ? 'arrow-up-right' : 'arrow-down-left'}"></i>
+                        </div>
+                        <div class="mov-details">
+                            <span class="mov-name">${m.desc}</span>
+                            <span class="mov-date">${m.date}</span>
+                        </div>
+                    </div>
+                    <div class="action-btns">
+                        <span class="mov-value ${m.type}">${isIncome ? '+' : '-'}${formatter.format(m.amount)}</span>
+                        <button onclick="deleteMovement(${m.id})" class="delete-btn">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            balanceDisplay.innerText = formatter.format(total);
+            incomeDisplay.innerText = formatter.format(totalIn);
+            expenseDisplay.innerText = formatter.format(totalOut);
+            lucide.createIcons();
+        }
+
+        render();
+        lucide.createIcons();
+    </script>
+</body>
+</html>

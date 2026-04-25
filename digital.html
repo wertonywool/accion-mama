@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Digital | Acción de Mamá</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/digital.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .check-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .custom-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--text-dim);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="checkbox"] { display: none; }
+        input[type="checkbox"]:checked + .check-container .custom-checkbox {
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+        input[type="checkbox"]:checked + .check-container .custom-checkbox::after {
+            content: '✓';
+            color: #000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <i data-lucide="sparkles"></i>
+            Acción de <span>Mamá</span>
+        </a>
+        <div class="nav-links">
+            <a href="ventas.html"><i data-lucide="shopping-bag"></i> Ventas</a>
+            <a href="encargos.html"><i data-lucide="package"></i> Encargos</a>
+            <a href="comida.html"><i data-lucide="utensils"></i> Comida</a>
+            <a href="digital.html" class="active"><i data-lucide="smartphone"></i> Digital</a>
+            <a href="estrategia.html"><i data-lucide="target"></i> Estrategia</a>
+            <a href="billetera.html"><i data-lucide="wallet"></i> Billetera</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="badge">Ingresos 100% Online</div>
+            <h1>Mundo <span>Digital</span></h1>
+            <p>Convierte tu conocimiento tecnológico en un servicio para los que más lo necesitan en tu comunidad.</p>
+        </header>
+
+        <main class="digital-grid">
+            <!-- Servicio 1: Trámites y Cuentas -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i data-lucide="user-plus"></i></div>
+                <div class="tag-container">
+                    <span class="service-tag">Adultos Mayores</span>
+                    <span class="service-tag">Redes Sociales</span>
+                </div>
+                <h3>Creación de Cuentas</h3>
+                <p>Muchos adultos no saben crear correos, Facebook o configurar su WhatsApp. Cobra un valor justo por asesoría y configuración inicial.</p>
+                <div class="platform-box">
+                    <span>Idea de Cobro:</span>
+                    <p>$5.000 - $10.000 por configuración completa.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=800" alt="Smartphone Use" class="service-image">
+                <div style="margin-top: 1.5rem;">
+                    <input type="checkbox" id="dig-1">
+                    <label for="dig-1" class="check-container">
+                        <span>Ofrecer Servicio</span>
+                        <div class="custom-checkbox"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Servicio 2: Compras por otros -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i data-lucide="mouse-pointer-2"></i></div>
+                <div class="tag-container">
+                    <span class="service-tag">Compras Online</span>
+                    <span class="service-tag">Seguridad</span>
+                </div>
+                <h3>Personal Shopper</h3>
+                <p>Hay personas que temen meter su tarjeta en internet. Tú haces la compra por ellos usando tu experiencia y cobras una comisión por el trámite.</p>
+                <div class="platform-box">
+                    <span>Herramientas:</span>
+                    <p>Usa Nequi o Daviplata para recibir el dinero primero.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800" alt="Online Shopping" class="service-image">
+                <div style="margin-top: 1.5rem;">
+                    <input type="checkbox" id="dig-2">
+                    <label for="dig-2" class="check-container">
+                        <span>Ofrecer Servicio</span>
+                        <div class="custom-checkbox"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Servicio 3: Recargas y Pagos -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i data-lucide="credit-card"></i></div>
+                <div class="tag-container">
+                    <span class="service-tag">Pagos Locales</span>
+                    <span class="service-tag">Servicios</span>
+                </div>
+                <h3>Pagos y Recargas</h3>
+                <p>Ayuda a tus vecinos a pagar el recibo de la luz, agua o hacer recargas de celular desde tu propia app bancaria. Ahorra tiempo a otros y gana por ello.</p>
+                <div class="platform-box">
+                    <span>Tip Colombia:</span>
+                    <p>Cobra un pequeño recargo ($1.000 - $2.000) por evitarles la fila.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&q=80&w=800" alt="Credit Card" class="service-image">
+                <div style="margin-top: 1.5rem;">
+                    <input type="checkbox" id="dig-3">
+                    <label for="dig-3" class="check-container">
+                        <span>Ofrecer Servicio</span>
+                        <div class="custom-checkbox"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Servicio 4: Descargas y Contenido -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i data-lucide="download-cloud"></i></div>
+                <div class="tag-container">
+                    <span class="service-tag">Multimedia</span>
+                    <span class="service-tag">Apps</span>
+                </div>
+                <h3>Asistencia Multimedia</h3>
+                <p>Descargar películas, música o configurar apps de streaming (Netflix, Disney+) en Smart TVs para personas que no saben cómo hacerlo.</p>
+                <div class="platform-box">
+                    <span>Valor Agregado:</span>
+                    <p>Organiza sus listas de reproducción o favoritos.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800" alt="Entertainment" class="service-image">
+                <div style="margin-top: 1.5rem;">
+                    <input type="checkbox" id="dig-4">
+                    <label for="dig-4" class="check-container">
+                        <span>Ofrecer Servicio</span>
+                        <div class="custom-checkbox"></div>
+                    </label>
+                </div>
+            </div>
+        </main>
+
+        <section class="card" style="background: var(--card-bg); border: 1px solid var(--glass-border); padding: 3rem; border-radius: var(--border-radius); text-align: center; margin-bottom: 5rem;">
+            <h2 style="color: var(--accent-gold); margin-bottom: 1.5rem;">¿Por qué este servicio es valioso?</h2>
+            <p style="color: var(--text-dim); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                Muchas personas en tu barrio tienen el dinero pero no el **tiempo** o el **conocimiento** para manejar herramientas digitales. Tú estás vendiendo **soluciones y tranquilidad**. Siempre usa plataformas seguras como **Nequi o Daviplata** para que el dinero esté protegido.
+            </p>
+        </section>
+
+        <div style="text-align: center; margin-bottom: 5rem;">
+            <a href="index.html" class="btn btn-primary">
+                <i data-lucide="arrow-left"></i>
+                Volver al Dashboard
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Acción de Mamá | Tecnología al servicio de todos</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
